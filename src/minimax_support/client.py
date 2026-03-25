@@ -48,6 +48,10 @@ def _load_creds() -> tuple[str, str]:
         )
     if not host:
         host = "https://api.minimax.io"  # default global
+    elif host in ("global", "cn"):
+        host = f"https://api.minimax.io" if host == "global" else "https://api.minimaxi.com"
+    elif not host.startswith("http://") and not host.startswith("https://"):
+        host = f"https://{host}"
 
     return key, host
 
