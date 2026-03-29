@@ -68,6 +68,15 @@ echo "Installing minimax-support CLI..."
 cd "$SCRIPT_DIR"
 uv tool install --from . minimax-support
 
+# Symlink to /usr/local/bin so CLI works in non-interactive shells without PATH modification
+echo "Creating symlink in /usr/local/bin..."
+mkdir -p "$(dirname /usr/local/bin/minimax-support 2>/dev/null || echo "")" 2>/dev/null || true
+if ln -sf "$HOME/.local/bin/minimax-support" /usr/local/bin/minimax-support 2>/dev/null; then
+    echo "Symlinked to /usr/local/bin/minimax-support"
+else
+    echo "Note: Could not create /usr/local/bin symlink (may need sudo). The CLI is installed to ~/.local/bin which should be in your PATH."
+fi
+
 # ── Save credentials ──────────────────────────────────────────────────────────
 CONFIG_DIR="$HOME/.config/minimax-support"
 mkdir -p "$CONFIG_DIR"
