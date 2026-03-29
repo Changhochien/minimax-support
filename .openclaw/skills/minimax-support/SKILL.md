@@ -17,7 +17,7 @@ metadata:
 
 Token-efficient web search and image understanding via MiniMax Token Plan APIs.
 
-**Requires:** `minimax-support` CLI and `MINIMAX_API_KEY` in `~/.config/minimax/creds.toml`
+**Requires:** `minimax-support` CLI and `MINIMAX_API_KEY` in `~/.config/minimax-support/creds.toml`
 
 ---
 

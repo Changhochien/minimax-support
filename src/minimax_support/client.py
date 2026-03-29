@@ -30,7 +30,7 @@ def _load_creds() -> tuple[str, str]:
     host = os.environ.get("MINIMAX_API_HOST", "")
 
     if not key or not host:
-        creds_file = Path.home() / ".config" / "minimax" / "creds.toml"
+        creds_file = Path.home() / ".config" / "minimax-support" / "creds.toml"
         if creds_file.exists():
             content = creds_file.read_text()
             for line in content.splitlines():
